@@ -33,7 +33,9 @@ public class UserController {
     public Route showLeaderboard = (request, response) -> {
         AuthController.ensureLoggedIn(request, response);
         Map<String, Object> model = new HashMap<>();
-        model.put("user", getUserByName(request.session().attribute("currentUser")));
+        User user = getUserByName(request.session().attribute("currentUser"));
+        model.put("user", user);
+        model.put("pointsLastWeek", user.getPointsSince(LocalDateTime.now().minusWeeks(1)));
         return ViewUtil.render(request, model, Template.LEADERBOARD);
     };
 

@@ -22,6 +22,10 @@ public class User {
         this.receivedPoints = new HashMap<>();
     }
 
+    public String getUsername() {
+        return username;
+    }
+
     public boolean passwordMatches(String password) {
         return this.password.equals(password);
     }
@@ -43,7 +47,18 @@ public class User {
         return lastLogin;
     }
 
-    public String getUsername() {
-        return username;
+    public Map<LocalDateTime, Integer> getReceivedPoints() {
+        return receivedPoints;
+    }
+
+    public int getPointsSince(LocalDateTime when) {
+        return receivedPoints.entrySet().stream()
+                .filter(entry -> entry.getKey().isAfter(when))
+                .mapToInt(Map.Entry::getValue)
+                .sum();
+    }
+
+    public int getTotalPoints() {
+        return getPointsSince(LocalDateTime.MIN);
     }
 }
