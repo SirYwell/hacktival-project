@@ -3,11 +3,14 @@ package hackathon.healthyearth;
 import static spark.Spark.get;
 import static spark.Spark.path;
 import static spark.Spark.post;
+import static spark.Spark.staticFileLocation;
 
 public class HealthyEarth {
     public static void main(String[] args) {
         UserController userController = new UserController();
         AuthController authController = new AuthController(userController);
+
+        staticFileLocation("/");
 
         // TODO
         userController.addUser("Günther", new User("Günther", "password123"));

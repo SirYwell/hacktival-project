@@ -1,0 +1,7 @@
+.container {
+	margin-top: 2em;
+}
+
+.leaderboard > div > img {
+	width: 60px;
+}

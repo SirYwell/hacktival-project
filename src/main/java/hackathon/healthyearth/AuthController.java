@@ -29,6 +29,7 @@ public class AuthController {
         request.session().attribute(CURRENT_USER_ATTR, username);
         String redirect = request.session().attribute(LOGIN_REDIRECT_ATTR);
         if (redirect == null) {
+            response.redirect(Path.OVERVIEW);
             return ViewUtil.render(request, model, Template.OVERVIEW);
         }
         response.redirect(redirect);
