@@ -3,7 +3,7 @@ package hackathon.healthyearth.data;
 public class Challenge {
     private static int counter = 0;
     private transient int id;
-    private String facts;
+    private String fact;
     private String text;
     private int points;
 
@@ -11,9 +11,9 @@ public class Challenge {
         this.id = counter++;
     }
 
-    public Challenge(int id, String facts, String text, int points) {
+    public Challenge(int id, String fact, String text, int points) {
         this.id = id;
-        this.facts = facts;
+        this.fact = fact;
         this.text = text;
         this.points = points;
     }
@@ -30,7 +30,7 @@ public class Challenge {
         return points;
     }
 
-    public String getFacts() {
-        return facts;
+    public String getFact() {
+        return fact;
     }
 }

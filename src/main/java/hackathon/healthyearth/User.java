@@ -11,7 +11,7 @@ public class User {
     private String username;
     private String password;
     private Map<LocalDateTime, Integer> receivedPoints;
-    private LocalDateTime lastlogin = LocalDateTime.now().minusWeeks(1);
+    private LocalDateTime lastLogin = LocalDateTime.now().minusWeeks(1);
     // TODO add personal data
 
     private List<Challenge> currentChallenges;
@@ -40,6 +40,10 @@ public class User {
     }
 
     public LocalDateTime getLastLogin() {
-        return lastlogin;
+        return lastLogin;
+    }
+
+    public String getUsername() {
+        return username;
     }
 }

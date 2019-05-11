@@ -1,0 +1,56 @@
+[
+    {
+        "username": "Günther",
+        "password": "password123",
+        "receivedPoints": {},
+        "lastLogin": {
+            "date": {
+                "year": 2019,
+                "month": 5,
+                "day": 5
+            },
+            "time": {
+                "hour": 0,
+                "minute": 0,
+                "second": 43,
+                "nano": 333960100
+            }
+        }
+    },
+    {
+        "username": "John Doe",
+        "password": "password456",
+        "receivedPoints": {},
+        "lastLogin": {
+            "date": {
+                "year": 2019,
+                "month": 5,
+                "day": 5
+            },
+            "time": {
+                "hour": 0,
+                "minute": 0,
+                "second": 43,
+                "nano": 333960100
+            }
+        }
+    },
+    {
+        "username": "Chuck Norris",
+        "password": "invalid",
+        "receivedPoints": {},
+        "lastLogin": {
+            "date": {
+                "year": 2019,
+                "month": 5,
+                "day": 5
+            },
+            "time": {
+                "hour": 0,
+                "minute": 0,
+                "second": 43,
+                "nano": 333960100
+            }
+        }
+    }
+]

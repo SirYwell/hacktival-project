@@ -6,6 +6,7 @@ import spark.Route;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -83,5 +84,13 @@ public class UserController {
             pickedChallenges.add(challengePool.pop());
         }
         user.setCurrentChallenges(pickedChallenges);
+    }
+
+    public List<User> findAll() {
+        return new ArrayList<>(users.values());
+    }
+
+    public void insertAll(Collection<User> list) {
+        list.forEach(user -> users.put(user.getUsername(), user));
     }
 }

@@ -20,11 +20,9 @@ public class HealthyEarth {
         UserController userController = new UserController(loadChallenges());
         AuthController authController = new AuthController(userController);
 
+        loadUsers(userController);
+
         staticFileLocation("/");
-
-        // TODO
-        userController.addUser("Günther", new User("Günther", "password123"));
-
 
         path("/", () -> {
             get(Path.HOME, userController.showHome);
@@ -46,5 +44,13 @@ public class HealthyEarth {
         List<Challenge> list = gson.fromJson(new InputStreamReader(stream), type);
         dao.insertAll(list);
         return dao;
+    }
+
+    private static void loadUsers(UserController controller) {
+        Gson gson = new Gson();
+        Type type = new TypeToken<List<User>>(){}.getType();
+        InputStream stream = HealthyEarth.class.getResourceAsStream("/data/users.json");
+        List<User> list = gson.fromJson(new InputStreamReader(stream), type);
+        controller.insertAll(list);
     }
 }
