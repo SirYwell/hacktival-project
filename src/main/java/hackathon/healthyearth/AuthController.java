@@ -29,8 +29,8 @@ public class AuthController {
         request.session().attribute(CURRENT_USER_ATTR, username);
         String redirect = request.session().attribute(LOGIN_REDIRECT_ATTR);
         if (redirect == null) {
-            response.redirect(Path.OVERVIEW);
-            return ViewUtil.render(request, model, Template.LEADERBOARD);
+            response.redirect(Path.HOME);
+            return ViewUtil.render(request, model, Template.HOME);
         }
         response.redirect(redirect);
         return null;
@@ -38,7 +38,7 @@ public class AuthController {
 
     public final Route handleLoginGet = (request, response) -> {
         if (request.session().attribute(CURRENT_USER_ATTR) != null) {
-            response.redirect(Template.LEADERBOARD);
+            response.redirect(Template.HOME);
             return null;
         }
         return ViewUtil.render(request, new HashMap<>(), Template.LOGIN);

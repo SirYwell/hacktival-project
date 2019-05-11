@@ -11,6 +11,10 @@
 	display: none;
 }
 
+.leaderboard > div > img {
+	width: 60px;
+}
+
 .canvasjs-chart-credit {
 	display: none;
 }
@@ -27,4 +31,11 @@
 
 .progress, .progress-bar {
 	height: 2em;
+}
+
+@media only screen and (max-width:768px) {
+	/* For tablets: */
+	.leaderboard > div > img {
+		width: 60px;
+	}
 }

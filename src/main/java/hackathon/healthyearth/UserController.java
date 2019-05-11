@@ -14,18 +14,25 @@ public class UserController {
         this.challengeDAO = challengeDAO;
     }
 
-    public final Route showOverview = (request, response) -> {
+    public Route showLeaderboard = (request, response) -> {
         AuthController.ensureLoggedIn(request, response);
         Map<String, Object> model = new HashMap<>();
         model.put("user", getUserByName(request.session().attribute("currentUser")));
-        return ViewUtil.render(request, model, Template.HOME);
+        return ViewUtil.render(request, model, Template.LEADERBOARD);
     };
 
-    public final Route showHome = (request, response) -> {
+    public Route showWeeklyCheckIn = (request, response) -> {
         AuthController.ensureLoggedIn(request, response);
         Map<String, Object> model = new HashMap<>();
-        model.put("challenges", challengeDAO.findAll());
-        return ViewUtil.render(request, model, Template.HOME);
+        model.put("user", getUserByName(request.session().attribute("currentUser")));
+        return ViewUtil.render(request, model, Template.WEEKLY_CHECK_IN);
+    };
+
+    public Route showSettings = (request, response) -> {
+        AuthController.ensureLoggedIn(request, response);
+        Map<String, Object> model = new HashMap<>();
+        model.put("user", getUserByName(request.session().attribute("currentUser")));
+        return ViewUtil.render(request, model, Template.SETTINGS);
     };
 
     public boolean authenticate(String username, String password) {
