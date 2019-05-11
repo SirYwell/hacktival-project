@@ -24,7 +24,7 @@
                     <div class="alert alert-info alert-dismissible fade show" role="alert">
                         ${challenge.text}
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">10 p</span>
+                            <span aria-hidden="true">${challenge.points} p</span>
                         </button>
                     </div>
                 </#list>
@@ -55,7 +55,7 @@
 </body>
 
 <script>
-    $('.alert').alert()
+    $('.alert').alert();
 
     $(document).ready(function(){
         $(".close").click(function(){
