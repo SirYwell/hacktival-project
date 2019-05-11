@@ -1,42 +1,52 @@
 [
     {
       "text": "Clean up a public location",
-      "points": 90
+      "points": 90,
+      "fact": ""
     },
     {
       "text": "Produce no waste for one whole day",
-      "points": 55
+      "points": 55,
+      "fact": "2016 alone europe produced over 27 million tons of plastic waste."
     },
     {
       "text": "Plant something",
-      "points": 70
+      "points": 70,
+      "fact": ""
     },
     {
       "text": "Change all remaining lightbulbs in your home out for LEDs",
-      "points": 70
+      "points": 70,
+      "fact": "LEDs need 80% less ernergy compared to classic lightbulbs."
     },
     {
       "text": "Buy locally sourced produce on your nearest farmers market",
-      "points": 55
+      "points": 55,
+      "fact": "Buying a tomatoe produced overseas costs over twice as much CO2 it it would buying a locally produced one."
     },
     {
       "text": "Careshare! Take someone with you in your car",
-      "points": 55
+      "points": 55,
+      "fact": "Cars are responsible for around 12% of total EU emissions of carbon dioxide (CO2), the main greenhouse gas."
     },
     {
       "text": "Reuse something you would have normally thrown away",
-      "points": 55
+      "points": 55,
+      "fact": "PET, the most commonly used plastic in water bottles, can be safely reused. No need to throw them away immediately."
     },
     {
       "text": "Check out a second hand store instead of buying something new",
-      "points": 55
+      "points": 55,
+      "fact": "It has been estimated that in 2015 EU citizens bought 6.4 million tonnes of new clothing (12.66 kg per person)."
     },
     {
       "text": "Install a low flow showerhead",
-      "points": 70
+      "points": 70,
+      "fact": ""
     },
     {
       "text": "Buy in season vegetables",
-      "points": 35
+      "points": 35,
+      "fact": "Growing and shipping a tomatoe bought in march produces almost 30 times as much CO2 as it would in september."
     }
 ]
