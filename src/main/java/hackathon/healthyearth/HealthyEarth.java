@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import hackathon.healthyearth.data.Challenge;
 import hackathon.healthyearth.data.ChallengeDAO;
+import hackathon.healthyearth.data.UserDAO;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -17,10 +18,9 @@ import static spark.Spark.staticFileLocation;
 
 public class HealthyEarth {
     public static void main(String[] args) {
-        UserController userController = new UserController(loadChallenges());
-        AuthController authController = new AuthController(userController);
-
-        loadUsers(userController);
+        UserDAO userDAO = loadUsers();
+        UserController userController = new UserController(userDAO, loadChallenges());
+        AuthController authController = new AuthController(userController, userDAO);
 
         staticFileLocation("/");
 
@@ -46,11 +46,13 @@ public class HealthyEarth {
         return dao;
     }
 
-    private static void loadUsers(UserController controller) {
+    private static UserDAO loadUsers() {
+        UserDAO dao = new UserDAO();
         Gson gson = new Gson();
         Type type = new TypeToken<List<User>>(){}.getType();
         InputStream stream = HealthyEarth.class.getResourceAsStream("/data/users.json");
         List<User> list = gson.fromJson(new InputStreamReader(stream), type);
-        controller.insertAll(list);
+        dao.insertAll(list);
+        return dao;
     }
 }
