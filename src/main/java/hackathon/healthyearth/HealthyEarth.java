@@ -32,6 +32,8 @@ public class HealthyEarth {
             get(Path.WEEKLY_CHECK_IN, userController.showWeeklyCheckIn);
             get(Path.SETTINGS, userController.showSettings);
             get(Path.LOGIN, authController.handleLoginGet);
+
+            post(Path.HOME, userController.finishChallenge);
             post(Path.LOGIN, authController.handleLoginPost);
         });
     }

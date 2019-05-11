@@ -27,6 +27,7 @@ public class AuthController {
         }
         model.put("authSucceeded", true);
         request.session().attribute(CURRENT_USER_ATTR, username);
+        userController.updateChallenges(userController.getUserByName(username));
         String redirect = request.session().attribute(LOGIN_REDIRECT_ATTR);
         if (redirect == null) {
             response.redirect(Path.HOME);

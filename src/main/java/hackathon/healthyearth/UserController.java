@@ -4,12 +4,14 @@ import hackathon.healthyearth.data.Challenge;
 import hackathon.healthyearth.data.ChallengeDAO;
 import spark.Route;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 public class UserController {
     private Map<String, User> users = new HashMap<>();
@@ -21,7 +23,9 @@ public class UserController {
     public Route showHome = (request, response) -> {
         AuthController.ensureLoggedIn(request, response);
         Map<String, Object> model = new HashMap<>();
-        model.put("user", getUserByName(request.session().attribute("currentUser")));
+        User user = getUserByName(request.session().attribute("currentUser"));
+        model.put("user", user);
+        model.put("challenges", user.getCurrentChallenges());
         return ViewUtil.render(request, model, Template.HOME);
     };
 
@@ -46,6 +50,15 @@ public class UserController {
         return ViewUtil.render(request, model, Template.SETTINGS);
     };
 
+    public final Route finishChallenge = (request, response) -> {
+        AuthController.ensureLoggedIn(request, response);
+        User user = getUserByName(request.session().attribute("currentUser"));
+        Optional<Challenge> challenge = challengeDAO.findById(Integer.parseInt(
+                request.queryParams("finishedChallengeId")));
+        user.finishChallenge(challenge.orElse(null));
+        return showHome.handle(request, response);
+    };
+
     public boolean authenticate(String username, String password) {
         return users.containsKey(username) && users.get(username).passwordMatches(password);
     }
@@ -59,6 +72,9 @@ public class UserController {
     }
 
     public void updateChallenges(User user) {
+        if (!user.getLastLogin().isBefore(LocalDateTime.now().minusWeeks(1))) {
+            return;
+        }
         //pick 4 random challenges from challenge pool
         LinkedList<Challenge> challengePool = new LinkedList<>(this.challengeDAO.findAll());
         Collections.shuffle(challengePool);
