@@ -12,7 +12,7 @@ public class UserController {
             AuthController.ensureLoggedIn(request, response);
             Map<String, Object> model = new HashMap<>();
             model.put("user", getUserByName(request.session().attribute("currentUser")));
-            return ViewUtil.render(request, model, Template.OVERVIEW);
+            return ViewUtil.render(request, model, Template.LEADERBOARD);
         };
 
     public boolean authenticate(String username, String password) {
