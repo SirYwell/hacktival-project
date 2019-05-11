@@ -8,12 +8,33 @@ import java.util.Map;
 public class UserController {
     private Map<String, User> users = new HashMap<>();
 
-    public Route showOverview = (request, response) -> {
-            AuthController.ensureLoggedIn(request, response);
-            Map<String, Object> model = new HashMap<>();
-            model.put("user", getUserByName(request.session().attribute("currentUser")));
-            return ViewUtil.render(request, model, Template.LEADERBOARD);
-        };
+    public Route showHome = (request, response) -> {
+        AuthController.ensureLoggedIn(request, response);
+        Map<String, Object> model = new HashMap<>();
+        model.put("user", getUserByName(request.session().attribute("currentUser")));
+        return ViewUtil.render(request, model, Template.HOME);
+    };
+
+    public Route showLeaderboard = (request, response) -> {
+        AuthController.ensureLoggedIn(request, response);
+        Map<String, Object> model = new HashMap<>();
+        model.put("user", getUserByName(request.session().attribute("currentUser")));
+        return ViewUtil.render(request, model, Template.LEADERBOARD);
+    };
+
+    public Route showWeeklyCheckIn = (request, response) -> {
+        AuthController.ensureLoggedIn(request, response);
+        Map<String, Object> model = new HashMap<>();
+        model.put("user", getUserByName(request.session().attribute("currentUser")));
+        return ViewUtil.render(request, model, Template.WEEKLY_CHECK_IN);
+    };
+
+    public Route showSettings = (request, response) -> {
+        AuthController.ensureLoggedIn(request, response);
+        Map<String, Object> model = new HashMap<>();
+        model.put("user", getUserByName(request.session().attribute("currentUser")));
+        return ViewUtil.render(request, model, Template.SETTINGS);
+    };
 
     public boolean authenticate(String username, String password) {
         return users.containsKey(username) && users.get(username).passwordMatches(password);

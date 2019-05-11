@@ -17,7 +17,10 @@ public class HealthyEarth {
 
 
         path("/", () -> {
-            get(Path.OVERVIEW, userController.showOverview);
+            get(Path.HOME, userController.showHome);
+            get(Path.LEADERBOARD, userController.showLeaderboard);
+            get(Path.WEEKLY_CHECK_IN, userController.showWeeklyCheckIn);
+            get(Path.SETTINGS, userController.showSettings);
             get(Path.LOGIN, authController.handleLoginGet);
             post(Path.LOGIN, authController.handleLoginPost);
         });
