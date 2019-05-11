@@ -46,4 +46,18 @@ public class UserController {
     public User getUserByName(String username) {
         return users.get(username);
     }
+
+    public void updateChallenges(User user) {
+      //pick 4 random challenges from challenge pool
+      List<Challenge> challengePool = this.challengeDAO.findAll();
+      List<Challenge> pickedChallenges = new ArrayList<>();
+      while (pickedChallenges.size() < 4) {
+        int index = randomGenerator.nextInt(challengePool.size());
+        newChallenge = challengePool.get(index);
+        if (!pickedChallenges.contains(newChallenge)) {
+          pickedChallenges.add(newChallenge);
+        }
+      }
+      user.setCurrentChallenges(pickedChallenges);
+    }
 }
