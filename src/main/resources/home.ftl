@@ -20,26 +20,14 @@
 
                 <p style="margin: 1em"><b>Complete your challenges:</b></p>
 
-                <div class="alert alert-info alert-dismissible fade show" role="alert">
-                    This is a info alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">10 p</span>
-                    </button>
-                </div>
-
-                <div class="alert alert-info alert-dismissible fade show" role="alert">
-                    This is a info alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">10 p</span>
-                    </button>
-                </div>
-
-                <div class="alert alert-info alert-dismissible fade show" role="alert">
-                    This is a info alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">10 p</span>
-                    </button>
-                </div>
+                <#list challenges as challenge>
+                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                        ${challenge.text}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">10 p</span>
+                        </button>
+                    </div>
+                </#list>
 
                 <div class="alert alert-success alert-dismissible" role="alert">
                     <h4 class="alert-heading">Well done!</h4>
