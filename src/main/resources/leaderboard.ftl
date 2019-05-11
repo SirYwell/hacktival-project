@@ -18,7 +18,7 @@
                     <img src="images/img_avatar3.png" alt="John Doe" class="align-self-center mr-3 mt-3 rounded-circle" style="width:60px;">
                     <div class="media-body align-self-center">
                         <b>You <small><i>Active since February 19, 2016</i></small></b>
-                        <p>Total points this week: 7834</p>
+                        <p>Total points this week: ${user.getTotalPoints()}</p>
                     </div>
                 </div>
 

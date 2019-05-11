@@ -12,16 +12,20 @@
             <#include "message.ftl">
         </#if>
 
-        <h1>Login Page</h1>
+        <h3>Sign In to Healthy Earth</h3>
 
         <div class="col-sm-6">
             <form action="/login" method="post">
-                <label for="username">
-                    <input name="username" type="text" placeholder="Your username..."/>
-                </label>
-                <label for="password">
-                    <input name="password" type="password" placeholder="Your password..."/>
-                </label>
+                <div class="form-group">
+                    <label for="username"></label>
+                    <input name="username" type="text" placeholder="Your username...">
+                </div>
+
+                <div class="form-group">
+                    <label for="password"></label>
+                    <input name="password" type="password" placeholder="Your password...">
+                </div>
+
                 <button type="submit">Log in</button>
             </form>
         </div>
