@@ -33,7 +33,9 @@ public class AuthController {
         model.put("authSucceeded", true);
         // model.put("user", userDAO.getUserByName(username));
         request.session().attribute(CURRENT_USER_ATTR, username);
-        userController.updateChallenges(userDAO.getUserByName(username));
+        User user = userDAO.getUserByName(username);
+        userController.updateChallenges(user);
+        userController.updateQuestions(user);
         String redirect = request.session().attribute(LOGIN_REDIRECT_ATTR);
         if (redirect == null) {
             response.redirect(Path.HOME);

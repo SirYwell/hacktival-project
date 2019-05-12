@@ -1,6 +1,8 @@
 package hackathon.healthyearth;
 
+import hackathon.healthyearth.data.Answer;
 import hackathon.healthyearth.data.Challenge;
+import hackathon.healthyearth.data.Question;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
@@ -15,6 +17,7 @@ public class User {
     // TODO add personal data
 
     private List<Challenge> currentChallenges;
+    private List<Question> questions;
 
     public User(String username, String password) {
         this.username = username;
@@ -30,6 +33,10 @@ public class User {
         return this.password.equals(password);
     }
 
+    public List<Challenge> getCurrentChallenges() {
+        return currentChallenges;
+    }
+
     public void setCurrentChallenges(List<Challenge> newChallenges) {
       currentChallenges = newChallenges;
     }
@@ -39,8 +46,17 @@ public class User {
         receivedPoints.put(LocalDateTime.now(), challenge.getPoints());
     }
 
-    public List<Challenge> getCurrentChallenges() {
-        return currentChallenges;
+    public List<Question> getCurrentQuestions() {
+        return questions;
+    }
+
+    public void setCurrentQuestions(List<Question> questions) {
+        this.questions = questions;
+    }
+
+    public void answerQuestion(Question question, Answer answer) {
+        questions.remove(question);
+        receivedPoints.put(LocalDateTime.now(), answer.getPoints());
     }
 
     public LocalDateTime getLastLogin() {

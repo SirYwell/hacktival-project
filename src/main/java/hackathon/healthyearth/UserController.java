@@ -1,7 +1,10 @@
 package hackathon.healthyearth;
 
+import hackathon.healthyearth.data.Answer;
 import hackathon.healthyearth.data.Challenge;
 import hackathon.healthyearth.data.ChallengeDAO;
+import hackathon.healthyearth.data.Question;
+import hackathon.healthyearth.data.QuestionDAO;
 import hackathon.healthyearth.data.UserDAO;
 import spark.Route;
 
@@ -17,10 +20,12 @@ import java.util.Optional;
 public class UserController {
     private UserDAO userDAO;
     private ChallengeDAO challengeDAO;
+    private QuestionDAO questionDAO;
 
-    public UserController(UserDAO userDAO, ChallengeDAO challengeDAO) {
+    public UserController(UserDAO userDAO, ChallengeDAO challengeDAO, QuestionDAO questionDAO) {
         this.userDAO = userDAO;
         this.challengeDAO = challengeDAO;
+        this.questionDAO = questionDAO;
     }
 
     public Route showHome = (request, response) -> {
@@ -48,11 +53,13 @@ public class UserController {
     public Route showWeeklyCheckIn = (request, response) -> {
         AuthController.ensureLoggedIn(request, response);
         Map<String, Object> model = new HashMap<>();
-        model.put("user", userDAO.getUserByName(request.session().attribute("currentUser")));
+        User user = userDAO.getUserByName(request.session().attribute("currentUser"));
+        model.put("user", user);
+        model.put("questions", user.getCurrentQuestions());
         return ViewUtil.render(request, model, Template.WEEKLY_CHECK_IN);
     };
 
-    public Route showSettings = (request, response) -> {
+    public final Route showSettings = (request, response) -> {
         AuthController.ensureLoggedIn(request, response);
         Map<String, Object> model = new HashMap<>();
         model.put("user", userDAO.getUserByName(request.session().attribute("currentUser")));
@@ -66,11 +73,33 @@ public class UserController {
                 request.queryParams("finishedChallengeId")));
         user.finishChallenge(challenge.orElse(null));
         Map<String, Object> model = new HashMap<>();
-        model.put("user", userDAO.getUserByName(request.session().attribute("currentUser")));
+        model.put("user", user);
         model.put("challengeFinished", true);
         model.put("levelInfo", new LevelInfo(user.getTotalPoints()));
         model.put("challenges", user.getCurrentChallenges());
         return ViewUtil.render(request, model, Template.HOME);
+    };
+
+    public final Route answerQuestion = (request, response) -> {
+        AuthController.ensureLoggedIn(request, response);
+        User user = userDAO.getUserByName(request.session().attribute("currentUser"));
+        Question question = questionDAO.findById(Integer.parseInt(
+                request.queryParams("answeredQuestionId"))).orElseThrow();
+        int answerId = Integer.parseInt(request.queryParams("answerId"));
+        Answer answer = null;
+        for (Answer a : question.getAnswers()) {
+            if (a.getId() == answerId) {
+                answer = a;
+                break;
+            }
+        }
+        user.answerQuestion(question, answer);
+        Map<String, Object> model = new HashMap<>();
+        model.put("user", user);
+        model.put("questionAnswered", true);
+        model.put("levelInfo", new LevelInfo(user.getTotalPoints()));
+        model.put("questions", user.getCurrentQuestions());
+        return ViewUtil.render(request, model, Template.WEEKLY_CHECK_IN);
     };
 
     public void updateChallenges(User user) {
@@ -85,5 +114,12 @@ public class UserController {
             pickedChallenges.add(challengePool.pop());
         }
         user.setCurrentChallenges(pickedChallenges);
+    }
+
+    public void updateQuestions(User user) {
+        if (!user.getLastLogin().isBefore(LocalDateTime.now().minusWeeks(1))) {
+            return;
+        }
+        user.setCurrentQuestions(questionDAO.findAll());
     }
 }
