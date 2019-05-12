@@ -11,6 +11,7 @@ import spark.Route;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -46,7 +47,9 @@ public class UserController {
         Map<String, Object> model = new HashMap<>();
         User user = userDAO.getUserByName(request.session().attribute("currentUser"));
         model.put("user", user);
-        model.put("users", userDAO.findAll());
+        List<User> sorted = new ArrayList<>(userDAO.findAll());
+        sorted.sort(Comparator.comparingInt(User::getTotalPoints).reversed());
+        model.put("users", sorted);
         model.put("pointsLastWeek", user.getPointsSince(LocalDateTime.now().minusWeeks(1)));
         return ViewUtil.render(request, model, Template.LEADERBOARD);
     };
