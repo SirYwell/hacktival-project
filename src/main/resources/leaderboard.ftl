@@ -21,24 +21,24 @@
                 <div class="media border p-3">
                     <img src="images/img_avatar3.png" alt="John Doe" class="align-self-center mr-3 mt-3 rounded-circle" style="width:60px;">
                     <div class="media-body align-self-center">
-                        <b>John Doe <small><i>Active since February 19, 2016</i></small></b>
-                        <p>Total points this week: 5309</p>
+                        <b>John Doe <small><i>Active since July 25, 2017</i></small></b>
+                        <p>Total points this week: 230</p>
                     </div>
                 </div>
 
                 <div class="media border p-3">
                     <img src="images/img_avatar4.png" alt="Jane Doe" class="align-self-center mr-3 mt-3 rounded-circle" style="width:60px;">
                     <div class="media-body align-self-center">
-                        <b>John Doe <small><i>Active since February 19, 2016</i></small></b>
-                        <p>Total points this week: 3425</p>
+                        <b>John Doe <small><i>Active since August 1, 2018</i></small></b>
+                        <p>Total points this week: 56</p>
                     </div>
                 </div>
 
                 <div class="media border p-3">
                     <img src="images/img_avatar3.png" alt="John Doe" class="align-self-center mr-3 mt-3 rounded-circle" style="width:60px;">
                     <div class="media-body align-self-center">
-                        <b>John Doe <small><i>Active since February 19, 2016</i></small></b>
-                        <p>Total points this week: 563</p>
+                        <b>John Doe <small><i>Active since January 5, 2019</i></small></b>
+                        <p>Total points this week: 109</p>
                     </div>
                 </div>
             </div>
