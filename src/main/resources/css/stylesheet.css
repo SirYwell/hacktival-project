@@ -1,3 +1,7 @@
+body, nav {
+	font-family: 'Gill Sans', sans-serif !important;
+}
+
 .container {
 	margin-top: 2em;
 }

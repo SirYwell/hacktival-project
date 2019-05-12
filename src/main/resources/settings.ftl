@@ -11,7 +11,7 @@
     <div class="container">
         <h3>Settings</h3>
 
-        <p>A navigation bar is a navigation header that is placed at the top of the page.</p>
+        <p>Change your settings here.</p>
     </div>
 </body>
 </html>

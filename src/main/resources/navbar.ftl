@@ -8,7 +8,11 @@
     </ul>
 
     <ul class="nav navbar-nav ml-auto">
-        <li class="nav-item"><a class="nav-link" href="#"><span>Sign Up <i class="fas fa-user"></i></span></a></li>
-        <li class="nav-item"><a class="nav-link" href="#"><span>Login <i class="fas fa-sign-in-alt"></i></span></a></li>
+        <#if currentUser??>
+                <li class="nav-item"><a class="nav-link" href="#"><span>${currentUser} <i class="fas fa-user"></i></span></a></li>
+            <#else>
+                <li class="nav-item"><a class="nav-link" href="#"><span>Sign Up <i class="fas fa-user"></i></span></a></li>
+                <li class="nav-item"><a class="nav-link" href="#myModal" data-toggle="modal"><span>Login <i class="fas fa-sign-in-alt"></i></span></a></li>
+        </#if>
     </ul>
 </nav>
