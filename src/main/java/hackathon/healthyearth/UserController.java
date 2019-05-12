@@ -46,6 +46,7 @@ public class UserController {
         Map<String, Object> model = new HashMap<>();
         User user = userDAO.getUserByName(request.session().attribute("currentUser"));
         model.put("user", user);
+        model.put("users", userDAO.findAll());
         model.put("pointsLastWeek", user.getPointsSince(LocalDateTime.now().minusWeeks(1)));
         return ViewUtil.render(request, model, Template.LEADERBOARD);
     };
