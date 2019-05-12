@@ -46,7 +46,7 @@
 
                 <div class="progress" style="border: 1px solid black; display: block;">
                     <div class="progress-bar progress-bar-success" role="progressbar" style="width:${levelInfo.getPercentage()}%">
-                        ${user.getCurrent()} p
+                        ${levelInfo.getCurrent()} p
                     </div>
                 </div>
             </div>

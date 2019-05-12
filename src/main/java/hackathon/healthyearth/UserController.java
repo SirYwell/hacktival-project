@@ -14,6 +14,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+import static spark.Spark.halt;
+
 public class UserController {
     private UserDAO userDAO;
     private ChallengeDAO challengeDAO;
@@ -27,14 +29,14 @@ public class UserController {
         AuthController.ensureLoggedIn(request, response);
         Map<String, Object> model = new HashMap<>();
         User user = userDAO.getUserByName(request.session().attribute("currentUser"));
-        if (user != null || (user = userDAO.getUserByName(request.queryParams("username"))) != null) {
-            model.put("user", user);
-            model.put("levelInfo", new LevelInfo(user.getTotalPoints()));
-            model.put("challenges", user.getCurrentChallenges());
-        }
-        if (request.session().attribute("challengeFinished")) {
-            model.put("challengeFinished", true);
-        }
+        // if (user != null || (user = userDAO.getUserByName(request.queryParams("username"))) != null) {
+        System.out.println(user);
+        model.put("user", user);
+        model.put("levelInfo", new LevelInfo(user.getTotalPoints()));
+        model.put("challenges", user.getCurrentChallenges());
+        // } else {
+            // model.put("user", )
+        // }
         return ViewUtil.render(request, model, Template.HOME);
     };
 
@@ -67,8 +69,10 @@ public class UserController {
         Optional<Challenge> challenge = challengeDAO.findById(Integer.parseInt(
                 request.queryParams("finishedChallengeId")));
         user.finishChallenge(challenge.orElse(null));
-        request.session().attribute("challengeFinished", true);
-        return showHome.handle(request, response);
+        Map<String, Object> model = new HashMap<>();
+        model.put("user", userDAO.getUserByName(request.session().attribute("currentUser")));
+        model.put("challengeFinished", true);
+        return ViewUtil.render(request, model, Path.HOME);
     };
 
     public void updateChallenges(User user) {
