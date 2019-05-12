@@ -2,6 +2,7 @@
 <#assign title="Login">
 <#assign highlighted="login">
 <#include "head.ftl">
+
 <body>
     <#include "navbar.ftl">
 

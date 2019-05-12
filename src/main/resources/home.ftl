@@ -2,20 +2,6 @@
 <#assign title="Home">
 <#include "head.ftl">
 
-<script>
-    $("#nav-home").attr('class', 'nav-item active');
-
-    $(document).ready(function(){
-        $('[data-toggle="tooltip"]').tooltip();
-
-        $(".close").click(function(){
-            $(".alert-success").show();
-        });
-    });
-
-    $('.alert').alert();
-</script>
-
 <body>
     <#include "navbar.ftl">
 
@@ -33,9 +19,12 @@
                 <#list challenges as challenge>
                     <div data-toggle="tooltip" data-placement="left" title="${challenge.fact}" class="alert alert-info alert-dismissible fade show" role="alert">
                         <p>${challenge.text}</p>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">${challenge.points} p</span>
-                        </button>
+
+                        <form method="post">
+                            <button type="submit" class="close" aria-label="Close">
+                                <span aria-hidden="true">${challenge.points} p</span>
+                            </button>
+                        </form>
                     </div>
                 </#list>
 
@@ -63,4 +52,18 @@
         </div>
     </div>
 </body>
+
+<script>
+    $("#nav-home").attr('class', 'nav-item active');
+
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+
+        /*$(".close").click(function(){
+            $(".alert-success").show();
+        });*/
+    });
+
+    //$('.alert').alert();
+</script>
 </html>

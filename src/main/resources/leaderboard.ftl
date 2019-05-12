@@ -2,10 +2,6 @@
 <#assign title="Leaderboard">
 <#include "head.ftl">
 
-<script>
-    $("#nav-leaderboard").attr('class', 'nav-item active');
-</script>
-
 <body>
     <#include "navbar.ftl">
 
@@ -53,6 +49,10 @@
         </div>
     </div>
 </body>
+
+<script>
+    $("#nav-leaderboard").attr('class', 'nav-item active');
+</script>
 
 <script>
     window.onload = function () {
