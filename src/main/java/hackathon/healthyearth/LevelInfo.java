@@ -6,13 +6,16 @@ public class LevelInfo {
     private int current;
 
     public LevelInfo(int points) {
-        int level = 0;
+        int level = 1;
         while (points > 0) {
             this.current = points;
-            level++;
             points -= level * 100;
+            level++;
         }
-        this.level = level++;
+        if (level > 1) {
+            level--;
+        }
+        this.level = level;
         this.required = level * 100;
     }
 
