@@ -21,6 +21,7 @@
                         <p>${challenge.text}</p>
 
                         <form method="post">
+                            <input type="hidden" name="finishedChallengeId" value="${challenge.id}"/>
                             <button type="submit" class="close" aria-label="Close">
                                 <span aria-hidden="true">${challenge.points} p</span>
                             </button>
