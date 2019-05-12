@@ -7,7 +7,6 @@ import hackathon.healthyearth.data.Question;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -17,6 +16,7 @@ import java.util.stream.Collectors;
 public class User {
     private String username;
     private String password;
+    private String gender;
     private Map<LocalDateTime, Integer> receivedPoints;
     private LocalDateTime lastLogin = LocalDateTime.now().minusWeeks(1);
     // TODO add personal data
@@ -100,5 +100,9 @@ public class User {
 
     public void setLastLogin(LocalDateTime lastLogin) {
         this.lastLogin = lastLogin;
+    }
+
+    public String getGender() {
+        return gender;
     }
 }
