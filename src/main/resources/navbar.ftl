@@ -1,4 +1,5 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <img src="images/forest.png" style="width:40px; margin-right: 0.5em">
     <a class="navbar-brand" href="#">Healthy Earth</a>
     <ul class="navbar-nav">
         <li class="nav-item" id="nav-home"><a class="nav-link" href="/"">Home</a></li>
