@@ -24,9 +24,10 @@ public class User {
     private List<Challenge> currentChallenges;
     private List<Question> questions;
 
-    public User(String username, String password) {
+    public User(String username, String password, String gender) {
         this.username = username;
         this.password = password;
+        this.gender = gender;
         this.receivedPoints = new HashMap<>();
     }
 

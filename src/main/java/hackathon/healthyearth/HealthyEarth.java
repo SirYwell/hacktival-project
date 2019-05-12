@@ -79,7 +79,8 @@ public class HealthyEarth {
             JsonObject userObject = userElement.getAsJsonObject();
             String username = userObject.get("username").getAsString();
             String password = userObject.get("password").getAsString();
-            User user = new User(username, password);
+            String gender = userObject.get("gender").getAsString();
+            User user = new User(username, password, gender);
             Map<LocalDateTime, Integer> receivedPoints = user.getReceivedPoints();
             JsonObject jsonReceivedPoints = userObject.get("receivedPoints").getAsJsonObject();
             for (String key : jsonReceivedPoints.keySet()) {
