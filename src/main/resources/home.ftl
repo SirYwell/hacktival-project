@@ -37,7 +37,7 @@
                         </div>
                 </#list>
 
-                <#if challengeFinished??>
+                <#if firstChallengeFinished??>
                     <div class="alert alert-success alert-dismissible" role="alert">
                         <h4 class="alert-heading">Well done!</h4>
                         <p>You have just successfully completed your first weekly challenge!</p>
@@ -60,11 +60,9 @@
                     </div>
                 </div>
 
-                <div class="container align-items-center justify-content-center">
-                    <div class="row">
-                        <div class="col-sm-4">
-                        </div>
-                        <div class="col-sm-4">
+                <div class="container">
+                    <div class="row align-items-center justify-content-center">
+                        <div>
                             <#if levelInfo.getLevel() <= 1>
                                     <img src="images/Sapling.jpg" class="tree-img rounded-circle" alt="" width="200px" height="200px">
                                 <#elseif levelInfo.getLevel() == 2>
@@ -72,8 +70,6 @@
                                 <#else>
                                     <img src="images/forest.png" class="tree-img rounded-circle" alt="" width="200px" height="200px">
                             </#if>
-                        </div>
-                        <div class="col-sm-4">
                         </div>
                     </div>
                 </div>

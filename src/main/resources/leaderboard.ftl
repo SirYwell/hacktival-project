@@ -77,7 +77,8 @@
             },
                 {
                     type: "spline",
-                    showInLegend: false,
+                    showInLegend: true,
+                    visible: false,
                     yValueFormatString: "## p",
                     name: "John Doe",
                     dataPoints: [
@@ -95,7 +96,8 @@
                 },
                 {
                     type: "spline",
-                    showInLegend: false,
+                    showInLegend: true,
+                    visible: false,
                     yValueFormatString: "## p",
                     name: "Jane Doe",
                     dataPoints: [
@@ -113,7 +115,8 @@
                 },
                 {
                     type: "spline",
-                    showInLegend: false,
+                    showInLegend: true,
+                    visible: false,
                     yValueFormatString: "## p",
                     name: "John Doe",
                     dataPoints: [
