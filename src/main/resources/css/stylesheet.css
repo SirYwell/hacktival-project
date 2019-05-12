@@ -2,13 +2,17 @@ body, nav {
 	font-family: 'Gill Sans', sans-serif !important;
 }
 
+.tree-img {
+	border: 1px solid grey;
+}
+
 .container {
 	margin-top: 2em;
 }
 
 .bordered-box {
 	padding: 1em;
-	border: 1px solid grey;
+	border: 3px solid grey;
 }
 
 .alert-success {

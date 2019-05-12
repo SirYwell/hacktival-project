@@ -45,8 +45,20 @@
                 </div>
 
                 <div class="progress" style="border: 1px solid black; display: block;">
-                    <div class="progress-bar progress-bar-success" role="progressbar" style="width:${levelInfo.getPercentage()}%">
+                    <div class="progress-bar bg-success" role="progressbar" style="width:${levelInfo.getPercentage()}%">
                         ${levelInfo.getCurrent()} p
+                    </div>
+                </div>
+
+                <div class="container align-items-center justify-content-center">
+                    <div class="row">
+                        <div class="col-sm-4">
+                        </div>
+                        <div class="col-sm-4">
+                            <img src="images/Sapling.jpg" class="tree-img rounded-circle" alt="" width="150px" height="150px">
+                        </div>
+                        <div class="col-sm-4">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -57,7 +69,7 @@
 <script>
     $("#nav-home").attr('class', 'nav-item active');
 
-    $(document).ready(function(){
+    $(document).ready(function() {
         $('[data-toggle="tooltip"]').tooltip();
 
         /*$(".close").click(function(){

@@ -75,7 +75,7 @@
             data: [{
                 type: "spline",
                 showInLegend: true,
-                yValueFormatString: "##.00mn",
+                yValueFormatString: "## p",
                 name: "You",
                 dataPoints: [
                     { label: "Day 1", y: 2.22 },
@@ -93,7 +93,7 @@
                 {
                     type: "spline",
                     showInLegend: true,
-                    yValueFormatString: "##.00mn",
+                    yValueFormatString: "## p",
                     name: "John Doe",
                     dataPoints: [
                         { label: "Day 1", y: 3.86 },
@@ -111,7 +111,7 @@
                 {
                     type: "spline",
                     showInLegend: true,
-                    yValueFormatString: "##.00mn",
+                    yValueFormatString: "## p",
                     name: "Jane Doe",
                     dataPoints: [
                         { label: "Day 1", y: 4.37 },
@@ -129,7 +129,7 @@
                 {
                     type: "spline",
                     showInLegend: true,
-                    yValueFormatString: "##.00mn",
+                    yValueFormatString: "## p",
                     name: "John Doe",
                     dataPoints: [
                         { label: "Day 1", y: 6.64 },
