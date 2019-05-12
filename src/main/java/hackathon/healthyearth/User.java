@@ -89,7 +89,7 @@ public class User {
              result.put(k.toLocalDate(), v + sum);
          });
          return result.entrySet().stream()
-                 .sorted(Map.Entry.comparingByKey(Comparator.reverseOrder()))
+                 .sorted(Map.Entry.comparingByKey())
                  .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
                          (oldValue, newValue) -> oldValue, LinkedHashMap::new));
     }
