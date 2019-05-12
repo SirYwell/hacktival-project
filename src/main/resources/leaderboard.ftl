@@ -63,70 +63,70 @@
                 yValueFormatString: "## p",
                 name: "${user.username}",
                 dataPoints: [
-                    { label: "Day 1", y: 2.22 },
-                    { label: "Day 2", y: 2.20 },
-                    { label: "Day 3", y: 2.44 },
-                    { label: "Day 4", y: 2.45 },
-                    { label: "Day 5", y: 2.58 },
-                    { label: "Day 6", y: 2.44 },
-                    { label: "Day 7", y: 2.40 },
-                    { label: "Day 8", y: 2.72 },
-                    { label: "Day 9", y: 2.66 },
-                    { label: "Day 10", y: 3.04 }
+                    { label: "Day 1", y: 20.22 },
+                    { label: "Day 2", y: 18.20 },
+                    { label: "Day 3", y: 19.44 },
+                    { label: "Day 4", y: 21.45 },
+                    { label: "Day 5", y: 10.58 },
+                    { label: "Day 6", y: 33.44 },
+                    { label: "Day 7", y: 14.40 },
+                    { label: "Day 8", y: 3.72 },
+                    { label: "Day 9", y: 27.66 },
+                    { label: "Day 10", y: 19.04 }
                 ]
             },
                 {
                     type: "spline",
-                    showInLegend: true,
+                    showInLegend: false,
                     yValueFormatString: "## p",
                     name: "John Doe",
                     dataPoints: [
-                        { label: "Day 1", y: 3.86 },
-                        { label: "Day 2", y: 3.76 },
-                        { label: "Day 3", y: 3.77 },
-                        { label: "Day 4", y: 3.65 },
-                        { label: "Day 5", y: 3.90 },
-                        { label: "Day 6", y: 3.88 },
-                        { label: "Day 7", y: 3.69 },
-                        { label: "Day 8", y: 3.86 },
-                        { label: "Day 9", y: 3.38 },
-                        { label: "Day 10", y: 4.20 }
+                        { label: "Day 1", y: 34.86 },
+                        { label: "Day 2", y: 32.76 },
+                        { label: "Day 3", y: 27.77 },
+                        { label: "Day 4", y: 22.65 },
+                        { label: "Day 5", y: 37.90 },
+                        { label: "Day 6", y: 19.88 },
+                        { label: "Day 7", y: 24.69 },
+                        { label: "Day 8", y: 29.86 },
+                        { label: "Day 9", y: 34.38 },
+                        { label: "Day 10", y: 45.20 }
                     ]
                 },
                 {
                     type: "spline",
-                    showInLegend: true,
+                    showInLegend: false,
                     yValueFormatString: "## p",
                     name: "Jane Doe",
                     dataPoints: [
-                        { label: "Day 1", y: 4.37 },
-                        { label: "Day 2", y: 4.27 },
-                        { label: "Day 3", y: 4.72 },
-                        { label: "Day 4", y: 4.87 },
-                        { label: "Day 5", y: 5.35 },
-                        { label: "Day 6", y: 5.50 },
-                        { label: "Day 7", y: 4.84 },
-                        { label: "Day 8", y: 4.13 },
-                        { label: "Day 9", y: 5.22 },
-                        { label: "Day 10", y: 5.39 }
+                        { label: "Day 1", y: 24.37 },
+                        { label: "Day 2", y: 21.27 },
+                        { label: "Day 3", y: 23.72 },
+                        { label: "Day 4", y: 39.87 },
+                        { label: "Day 5", y: 36.35 },
+                        { label: "Day 6", y: 17.50 },
+                        { label: "Day 7", y: 20.84 },
+                        { label: "Day 8", y: 27.13 },
+                        { label: "Day 9", y: 24.22 },
+                        { label: "Day 10", y: 18.39 }
                     ]
                 },
                 {
                     type: "spline",
-                    showInLegend: true,
+                    showInLegend: false,
                     yValueFormatString: "## p",
                     name: "John Doe",
                     dataPoints: [
-                        { label: "Day 1", y: 6.64 },
-                        { label: "Day 2", y: 6.31 },
-                        { label: "Day 3", y: 6.59 },
-                        { label: "Day 4", y: 6.95 },
-                        { label: "Day 5", y: 7.16 },
-                        { label: "Day 6", y: 6.40 },
-                        { label: "Day 7", y: 7.20 },
-                        { label: "Day 8", y: 7.17 },
-                        { label: "Day 9", y: 6.95 },
-                        { label: "Day 10", y: 7.09 }
+                        { label: "Day 1", y: 34.64 },
+                        { label: "Day 2", y: 44.31 },
+                        { label: "Day 3", y: 26.59 },
+                        { label: "Day 4", y: 28.95 },
+                        { label: "Day 5", y: 35.16 },
+                        { label: "Day 6", y: 22.40 },
+                        { label: "Day 7", y: 17.20 },
+                        { label: "Day 8", y: 28.17 },
+                        { label: "Day 9", y: 34.95 },
+                        { label: "Day 10", y: 39.09 }
                     ]
                 }]
         });
