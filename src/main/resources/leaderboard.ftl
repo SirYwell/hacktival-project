@@ -56,81 +56,24 @@
                 cursor: "pointer",
                 itemclick: toggleDataSeries
             },
-            data: [{
-                type: "spline",
-                showInLegend: true,
-                yValueFormatString: "## p",
-                name: "${user.username}",
-                dataPoints: [
-                    { label: "Day 1", y: 20.22 },
-                    { label: "Day 2", y: 18.20 },
-                    { label: "Day 3", y: 19.44 },
-                    { label: "Day 4", y: 21.45 },
-                    { label: "Day 5", y: 10.58 },
-                    { label: "Day 6", y: 33.44 },
-                    { label: "Day 7", y: 14.40 },
-                    { label: "Day 8", y: 3.72 },
-                    { label: "Day 9", y: 27.66 },
-                    { label: "Day 10", y: 19.04 }
-                ]
-            },
+            data: [
+                <#list users as otherUser>
                 {
                     type: "spline",
                     showInLegend: true,
-                    visible: false,
                     yValueFormatString: "## p",
-                    name: "John Doe",
+                    <#if otherUser.username != currentUser>
+                    visible: false,
+                    </#if>
+                    name: "${otherUser.username}",
                     dataPoints: [
-                        { label: "Day 1", y: 34.86 },
-                        { label: "Day 2", y: 32.76 },
-                        { label: "Day 3", y: 27.77 },
-                        { label: "Day 4", y: 22.65 },
-                        { label: "Day 5", y: 37.90 },
-                        { label: "Day 6", y: 19.88 },
-                        { label: "Day 7", y: 24.69 },
-                        { label: "Day 8", y: 29.86 },
-                        { label: "Day 9", y: 34.38 },
-                        { label: "Day 10", y: 45.20 }
+                        <#list otherUser.getPointsPerDay() as date, points>
+                        { label: "${date}", y: ${points} },
+                        </#list>
                     ]
                 },
-                {
-                    type: "spline",
-                    showInLegend: true,
-                    visible: false,
-                    yValueFormatString: "## p",
-                    name: "Jane Doe",
-                    dataPoints: [
-                        { label: "Day 1", y: 24.37 },
-                        { label: "Day 2", y: 21.27 },
-                        { label: "Day 3", y: 23.72 },
-                        { label: "Day 4", y: 39.87 },
-                        { label: "Day 5", y: 36.35 },
-                        { label: "Day 6", y: 17.50 },
-                        { label: "Day 7", y: 20.84 },
-                        { label: "Day 8", y: 27.13 },
-                        { label: "Day 9", y: 24.22 },
-                        { label: "Day 10", y: 18.39 }
-                    ]
-                },
-                {
-                    type: "spline",
-                    showInLegend: true,
-                    visible: false,
-                    yValueFormatString: "## p",
-                    name: "John Doe",
-                    dataPoints: [
-                        { label: "Day 1", y: 34.64 },
-                        { label: "Day 2", y: 44.31 },
-                        { label: "Day 3", y: 26.59 },
-                        { label: "Day 4", y: 28.95 },
-                        { label: "Day 5", y: 35.16 },
-                        { label: "Day 6", y: 22.40 },
-                        { label: "Day 7", y: 17.20 },
-                        { label: "Day 8", y: 28.17 },
-                        { label: "Day 9", y: 34.95 },
-                        { label: "Day 10", y: 39.09 }
-                    ]
-                }]
+                </#list>
+            ]
         });
         chart.render();
 
