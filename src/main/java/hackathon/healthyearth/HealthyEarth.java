@@ -1,6 +1,10 @@
 package hackathon.healthyearth;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 import hackathon.healthyearth.data.Challenge;
 import hackathon.healthyearth.data.ChallengeDAO;
@@ -11,9 +15,13 @@ import hackathon.healthyearth.data.UserDAO;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import static spark.Spark.get;
+import static spark.Spark.halt;
 import static spark.Spark.path;
 import static spark.Spark.post;
 import static spark.Spark.staticFileLocation;
@@ -63,9 +71,26 @@ public class HealthyEarth {
     private static UserDAO loadUsers() {
         UserDAO dao = new UserDAO();
         Gson gson = new Gson();
-        Type type = new TypeToken<List<User>>(){}.getType();
         InputStream stream = HealthyEarth.class.getResourceAsStream("/data/users.json");
-        List<User> list = gson.fromJson(new InputStreamReader(stream), type);
+        JsonParser parser = new JsonParser();
+        JsonArray usersArray = parser.parse(new InputStreamReader(stream)).getAsJsonArray();
+        List<User> list = new ArrayList<>();
+        for (JsonElement userElement : usersArray) {
+            JsonObject userObject = userElement.getAsJsonObject();
+            String username = userObject.get("username").getAsString();
+            String password = userObject.get("password").getAsString();
+            User user = new User(username, password);
+            Map<LocalDateTime, Integer> receivedPoints = user.getReceivedPoints();
+            JsonObject jsonReceivedPoints = userObject.get("receivedPoints").getAsJsonObject();
+            for (String key : jsonReceivedPoints.keySet()) {
+                LocalDateTime parse = LocalDateTime.parse(key);
+                int points = jsonReceivedPoints.get(key).getAsInt();
+                receivedPoints.put(parse, points);
+            }
+            LocalDateTime lastLogin = gson.fromJson(userObject.get("lastLogin"), LocalDateTime.class);
+            user.setLastLogin(lastLogin);
+            list.add(user);
+        }
         dao.insertAll(list);
         return dao;
     }

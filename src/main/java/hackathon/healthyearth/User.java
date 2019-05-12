@@ -77,4 +77,8 @@ public class User {
     public int getTotalPoints() {
         return getPointsSince(LocalDateTime.MIN);
     }
+
+    public void setLastLogin(LocalDateTime lastLogin) {
+        this.lastLogin = lastLogin;
+    }
 }
