@@ -4,11 +4,18 @@ import hackathon.healthyearth.data.Answer;
 import hackathon.healthyearth.data.Challenge;
 import hackathon.healthyearth.data.Question;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.function.BiConsumer;
+import java.util.function.BinaryOperator;
+import java.util.function.Function;
+import java.util.function.Supplier;
+import java.util.stream.Collector;
 
 public class User {
     private String username;
@@ -73,6 +80,18 @@ public class User {
                 .filter(entry -> entry.getKey().isAfter(when))
                 .mapToInt(Map.Entry::getValue)
                 .sum();
+    }
+
+    public Map<LocalDate, Integer> getPointsPerDay() {
+         Map<LocalDate, Integer> result = new HashMap<>();
+         receivedPoints.forEach((k, v) -> {
+             int sum = 0;
+             if (result.containsKey(k.toLocalDate())) {
+                 sum = result.get(k.toLocalDate());
+             }
+             result.put(k.toLocalDate(), v + sum);
+         });
+         return result;
     }
 
     public int getTotalPoints() {

@@ -78,7 +78,9 @@ public class UserController {
         user.finishChallenge(challenge.orElse(null));
         Map<String, Object> model = new HashMap<>();
         model.put("user", user);
-        model.put("challengeFinished", true);
+        if (user.getCurrentChallenges().size() == 3) {
+            model.put("firstChallengeFinished", true);
+        }
         model.put("levelInfo", new LevelInfo(user.getTotalPoints()));
         model.put("challenges", user.getCurrentChallenges());
         return ViewUtil.render(request, model, Template.HOME);
