@@ -15,10 +15,6 @@ body, nav {
 	border: 3px solid grey;
 }
 
-.alert-success {
-	display: none;
-}
-
 .leaderboard > div > img {
 	width: 60px;
 }

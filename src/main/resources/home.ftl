@@ -27,15 +27,25 @@
                             </button>
                         </form>
                     </div>
+                    <#else>
+                        <div class="alert alert-secondary alert-dismissible" role="alert">
+                            <h4 class="alert-heading">No challenges left for this week</h4>
+                            <p>Come back next week for more!</p>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
                 </#list>
 
-                <div class="alert alert-success alert-dismissible" role="alert">
-                    <h4 class="alert-heading">Well done!</h4>
-                    <p>You have just successfully completed your first weekly challenge!</p>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
+                <#if challengeFinished??>
+                    <div class="alert alert-success alert-dismissible" role="alert">
+                        <h4 class="alert-heading">Well done!</h4>
+                        <p>You have just successfully completed your first weekly challenge!</p>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </#if>
             </div>
 
             <div class="col-sm-6">
