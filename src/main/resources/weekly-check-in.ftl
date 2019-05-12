@@ -13,7 +13,7 @@
                 <form class="form-inline" method="post">
                     <#list questions as question>
                         <div class="form-group">
-                            <div class="container"><div class="row" style="padding: 1em; padding-left: 0em;">${question.text}</div></div>
+                            <div class="container"><div class="row" style="padding: 1em; padding-left: 0em; padding-top: 0em;">${question.text}</div></div>
                             <#list question.answers as answer>
                                 <div class="input-group">
                                     <input type="hidden" name="answeredQuestionId" value="${question.id}">
@@ -24,7 +24,7 @@
                         </div>
                     </#list>
 
-                    <button type="submit" class="btn btn-outline-success">Done</button>
+                    <button style="margin: 0.5em;" type="submit" class="btn btn-outline-success">Done</button>
                 </form>
             </div>
         </div>
