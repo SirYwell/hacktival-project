@@ -14,8 +14,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import static spark.Spark.halt;
-
 public class UserController {
     private UserDAO userDAO;
     private ChallengeDAO challengeDAO;
@@ -29,8 +27,6 @@ public class UserController {
         AuthController.ensureLoggedIn(request, response);
         Map<String, Object> model = new HashMap<>();
         User user = userDAO.getUserByName(request.session().attribute("currentUser"));
-        // if (user != null || (user = userDAO.getUserByName(request.queryParams("username"))) != null) {
-        System.out.println(user);
         model.put("user", user);
         model.put("levelInfo", new LevelInfo(user.getTotalPoints()));
         model.put("challenges", user.getCurrentChallenges());
@@ -72,7 +68,9 @@ public class UserController {
         Map<String, Object> model = new HashMap<>();
         model.put("user", userDAO.getUserByName(request.session().attribute("currentUser")));
         model.put("challengeFinished", true);
-        return ViewUtil.render(request, model, Path.HOME);
+        model.put("levelInfo", new LevelInfo(user.getTotalPoints()));
+        model.put("challenges", user.getCurrentChallenges());
+        return ViewUtil.render(request, model, Template.HOME);
     };
 
     public void updateChallenges(User user) {
