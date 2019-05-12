@@ -10,18 +10,21 @@
 
         <div class="row">
             <div class="col-sm-6">
-                <form method="post">
+                <form class="form-inline" method="post">
                     <#list questions as question>
                         <div class="form-group">
-                            <p>${question.text}</p>
+                            <div class="container"><div class="row" style="padding: 1em; padding-left: 0em;">${question.text}</div></div>
                             <#list question.answers as answer>
-                                <input type="hidden" name="answeredQuestionId" value="${question.id}">
-                                <label for="${answer.id}">${answer.text}</label>
-                                <input type="radio" class="form-control" id="${answer.id}" name="${answer.id}" value="${answer.id}">
+                                <div class="input-group">
+                                    <input type="hidden" name="answeredQuestionId" value="${question.id}">
+                                    <input style="margin: 0.6em; !important;" type="radio" id="${answer.id}" name="answerId-${question.id}" value="${answer.id}">
+                                    <label for="${answer.id}">${answer.text}</label>
+                                </div>
                             </#list>
                         </div>
-                        <button type="submit" class="btn btn-outline-success">Done</button>
                     </#list>
+
+                    <button type="submit" class="btn btn-outline-success">Done</button>
                 </form>
             </div>
         </div>

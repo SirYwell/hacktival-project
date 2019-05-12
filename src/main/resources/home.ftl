@@ -55,10 +55,12 @@
                         <div class="col-sm-4">
                         </div>
                         <div class="col-sm-4">
-                            <#if levelInfo.getCurrent() == 1>
-                                    <img src="images/Sapling.jpg" class="tree-img rounded-circle" alt="" width="150px" height="150px">
+                            <#if levelInfo.getLevel() <= 1>
+                                    <img src="images/Sapling.jpg" class="tree-img rounded-circle" alt="" width="200px" height="200px">
+                                <#elseif levelInfo.getLevel() == 2>
+                                    <img src="images/tree.png" class="tree-img rounded-circle" alt="" width="200px" height="200px">
                                 <#else>
-                                    <img src="images/tree.jpg" class="tree-img rounded-circle" alt="" width="150px" height="150px">
+                                    <img src="images/forest.png" class="tree-img rounded-circle" alt="" width="200px" height="200px">
                             </#if>
                         </div>
                         <div class="col-sm-4">

@@ -124,13 +124,19 @@
 
     <h3>Welcome to Healthy Earth!</h3>
 
-    <div class="row">
-        <div class="col-sm-4">
-
+    <div class="row" style="margin-top: 1em;">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-2" style="padding=4em;">
+            <img src="images/forest.png" class="tree-img rounded-circle" alt="" width="256px" height="256px">
+        </div>
+        <div class="col-sm-2">
         </div>
 
-        <div class="col-sm-8">
-            <p>Compete with your friends to save the planet!</p>
+        <div class="col-sm-6">
+            <p style="padding: 4em; text-align: justify">Compete with your friends to save the planet! We all can play our part in fighting against climate change and now is the time to start.
+                Challenge your friends and yourself to do the right thing: Unique challenges and a weekly check-in are waiting for you.
+                Live a greener life and watch your very own forest grow.</p>
         </div>
     </div>
 
