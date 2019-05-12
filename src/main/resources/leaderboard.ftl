@@ -12,7 +12,12 @@
             <div class="col-sm-6 leaderboard">
                 <#list users as otherUser>
                     <div class="media border p-3">
-                        <img src="images/img_avatar3.png" alt="John Doe" class="align-self-center mr-3 mt-3 rounded-circle" style="width:60px;">
+                        <#if otherUser.gender == "male">
+                                <img src="images/img_avatar3.png" alt="John Doe" class="align-self-center mr-3 mt-3 rounded-circle" style="width:60px;">
+                            <#else>
+                                <img src="images/img_avatar4.png" alt="Jane Doe" class="align-self-center mr-3 mt-3 rounded-circle" style="width:60px;">
+                        </#if>
+
                         <div class="media-body align-self-center">
                             <b>
                                 <#if otherUser.username == currentUser>
