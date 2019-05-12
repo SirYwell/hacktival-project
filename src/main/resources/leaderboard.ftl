@@ -24,7 +24,6 @@
                             <p>Total points this week: ${otherUser.getTotalPoints()}</p>
                         </div>
                     </div>
-
                 </#list>
             </div>
 

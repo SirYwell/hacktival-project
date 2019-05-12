@@ -7,15 +7,12 @@ import hackathon.healthyearth.data.Question;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import java.util.function.BiConsumer;
-import java.util.function.BinaryOperator;
-import java.util.function.Function;
-import java.util.function.Supplier;
-import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class User {
     private String username;
@@ -91,7 +88,10 @@ public class User {
              }
              result.put(k.toLocalDate(), v + sum);
          });
-         return result;
+         return result.entrySet().stream()
+                 .sorted(Map.Entry.comparingByKey(Comparator.reverseOrder()))
+                 .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
+                         (oldValue, newValue) -> oldValue, LinkedHashMap::new));
     }
 
     public int getTotalPoints() {
