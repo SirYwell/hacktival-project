@@ -11,10 +11,14 @@
         <div class="row">
             <div class="col-sm-6">
                 <form method="post">
-                    <#list weeklyQuestions as question>
+                    <#list questions as question>
                         <div class="form-group">
-                            <label for="question1">${question.text}</label>
-                            <input type="text" class="form-control" id="question1" placeholder="Your answer">
+                            <p>${question.text}</p>
+                            <#list question.answers as answer>
+                                <input type="hidden" name="answeredQuestionId" value="${question.id}">
+                                <label for="${answer.id}">${answer.text}</label>
+                                <input type="radio" class="form-control" id="${answer.id}" name="${answer.id}" value="${answer.id}">
+                            </#list>
                         </div>
                         <button type="submit" class="btn btn-outline-success">Done</button>
                     </#list>

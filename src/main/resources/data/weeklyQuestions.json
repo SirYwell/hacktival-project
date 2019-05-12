@@ -3,35 +3,35 @@
     "text": "On how many days did you use your car this week?",
     "answers": [
       {
-        "0": "0",
+        "text": "0",
         "points": 40
       },
       {
-        "1": "1",
+        "text": "1",
         "points": 30
       },
       {
-        "2": "2",
+        "text": "2",
         "points": 25
       },
       {
-        "3": "3",
+        "text": "3",
         "points": 20
       },
       {
-        "4": "4",
+        "text": "4",
         "points": 15
       },
       {
-        "5": "5",
+        "text": "5",
         "points": 10
       },
       {
-        "6": "6",
+        "text": "6",
         "points": 5
       },
       {
-        "7": "7",
+        "text": "7",
         "points": 0
       }
     ]
@@ -40,35 +40,35 @@
     "text": "On how many days did you eat meat this week?",
     "answers": [
       {
-        "0": "0",
+        "text": "0",
         "points": 40
       },
       {
-        "1": "1",
+        "text": "1",
         "points": 30
       },
       {
-        "2": "2",
+        "text": "2",
         "points": 25
       },
       {
-        "3": "3",
+        "text": "3",
         "points": 20
       },
       {
-        "4": "4",
+        "text": "4",
         "points": 15
       },
       {
-        "5": "5",
+        "text": "5",
         "points": 10
       },
       {
-        "6": "6",
+        "text": "6",
         "points": 5
       },
       {
-        "7": "7",
+        "text": "7",
         "points": 0
       }
     ]
@@ -77,15 +77,15 @@
     "text": "Did you throw away food this week?",
     "answers": [
       {
-        "0": "No",
+        "text": "No",
         "points": 60
       },
       {
-        "1": "Rarely",
+        "text": "Rarely",
         "points": 20
       },
       {
-        "2": "Yes",
+        "text": "Yes",
         "points": 0
       }
     ]
@@ -94,15 +94,15 @@
     "text": "Did you try to minimize the packaging waste you produced this week?",
     "answers": [
       {
-        "0": "Yes",
+        "text": "Yes",
         "points": 40
       },
       {
-        "1": "Mostly",
+        "text": "Mostly",
         "points": 15
       },
       {
-        "2": "No",
+        "text": "No",
         "points": 0
       }
     ]
@@ -111,15 +111,15 @@
     "text": "Did you pay attention to heat and air your house/flat consciously this week?",
     "answers": [
       {
-        "0": "Yes",
+        "text": "Yes",
         "points": 30
       },
       {
-        "1": "Mostly",
+        "text": "Mostly",
         "points": 15
       },
       {
-        "2": "No",
+        "text": "No",
         "points": 0
       }
     ]
@@ -128,15 +128,15 @@
     "text": "How long did you shower on average this week?",
     "answers": [
       {
-        "0": "0-5 min",
+        "text": "0-5 min",
         "point": 20
       },
       {
-        "1": "5-15 min",
+        "text": "5-15 min",
         "point": 10
       },
       {
-        "2": "over 15 min",
+        "text": "over 15 min",
         "point": 0
       }
     ]
