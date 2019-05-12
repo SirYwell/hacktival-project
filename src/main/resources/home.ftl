@@ -41,12 +41,12 @@
             <div class="col-sm-6">
                 <div class="clearfix">
                     <div style="float: left;">Check your progress:</div>
-                    <div style="float: right;">Level 3 (${user.getTotalPoints()} / 1000 p) <i class="far fa-star"></i></div>
+                    <div style="float: right;">Level ${levelInfo.level} (${levelInfo.getCurrent()} / ${levelInfo.getRequired()} p) <i class="far fa-star"></i></div>
                 </div>
 
                 <div class="progress" style="border: 1px solid black; display: block;">
-                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width:45%">
-                        ${user.getTotalPoints()} p
+                    <div class="progress-bar progress-bar-success" role="progressbar" style="width:${levelInfo.getPercentage()}%">
+                        ${user.getCurrent()} p
                     </div>
                 </div>
             </div>

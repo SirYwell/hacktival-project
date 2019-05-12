@@ -29,6 +29,7 @@ public class AuthController {
             return ViewUtil.render(request, model, Template.LOGIN);
         }
         model.put("authSucceeded", true);
+        model.put("user", userDAO.getUserByName(username));
         request.session().attribute(CURRENT_USER_ATTR, username);
         userController.updateChallenges(userDAO.getUserByName(username));
         String redirect = request.session().attribute(LOGIN_REDIRECT_ATTR);

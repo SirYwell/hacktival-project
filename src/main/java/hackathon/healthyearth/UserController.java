@@ -27,8 +27,14 @@ public class UserController {
         AuthController.ensureLoggedIn(request, response);
         Map<String, Object> model = new HashMap<>();
         User user = userDAO.getUserByName(request.session().attribute("currentUser"));
-        model.put("user", user);
-        model.put("challenges", user.getCurrentChallenges());
+        if (user != null || (user = userDAO.getUserByName(request.queryParams("username"))) != null) {
+            model.put("user", user);
+            model.put("levelInfo", new LevelInfo(user.getTotalPoints()));
+            model.put("challenges", user.getCurrentChallenges());
+        }
+        if (request.session().attribute("challengeFinished")) {
+            model.put("challengeFinished", true);
+        }
         return ViewUtil.render(request, model, Template.HOME);
     };
 
@@ -61,6 +67,7 @@ public class UserController {
         Optional<Challenge> challenge = challengeDAO.findById(Integer.parseInt(
                 request.queryParams("finishedChallengeId")));
         user.finishChallenge(challenge.orElse(null));
+        request.session().attribute("challengeFinished", true);
         return showHome.handle(request, response);
     };
 

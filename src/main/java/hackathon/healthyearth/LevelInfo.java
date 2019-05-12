@@ -1,16 +1,19 @@
 package hackathon.healthyearth;
 
-import java.util.function.Function;
-
 public class LevelInfo {
-    private static final Function<Integer, Integer> CALC_LEVEL = i -> i / 100;
-    private static final Function<Integer, Integer> CALC_REQUIRED = i -> i * 100 + 100;
     private int level;
     private int required;
+    private int current;
 
     public LevelInfo(int points) {
-        this.level = CALC_LEVEL.apply(points);
-        this.required = CALC_REQUIRED.apply(level);
+        int level = 0;
+        while (points > 0) {
+            this.current = points;
+            level++;
+            points -= level * 100;
+        }
+        this.level = level++;
+        this.required = level * 100;
     }
 
     public int getLevel() {
@@ -19,5 +22,13 @@ public class LevelInfo {
 
     public int getRequired() {
         return required;
+    }
+
+    public int getCurrent() {
+        return current;
+    }
+
+    public int getPercentage() {
+        return current * 100 / required;
     }
 }
