@@ -5,6 +5,7 @@ import hackathon.healthyearth.data.Challenge;
 import hackathon.healthyearth.data.Question;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,7 +48,7 @@ public class User {
     }
 
     public List<Question> getCurrentQuestions() {
-        return questions;
+        return questions != null ? questions : (questions = new ArrayList<>());
     }
 
     public void setCurrentQuestions(List<Question> questions) {

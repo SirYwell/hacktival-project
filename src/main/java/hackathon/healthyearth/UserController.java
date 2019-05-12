@@ -85,7 +85,7 @@ public class UserController {
         User user = userDAO.getUserByName(request.session().attribute("currentUser"));
         Question question = questionDAO.findById(Integer.parseInt(
                 request.queryParams("answeredQuestionId"))).orElseThrow();
-        int answerId = Integer.parseInt(request.queryParams("answerId"));
+        int answerId = Integer.parseInt(request.queryParams("answerId-" + question.getId()));
         Answer answer = null;
         for (Answer a : question.getAnswers()) {
             if (a.getId() == answerId) {

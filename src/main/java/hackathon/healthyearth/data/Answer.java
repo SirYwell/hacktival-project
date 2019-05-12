@@ -6,8 +6,12 @@ public class Answer {
     private String text;
     private int points;
 
-    public Answer(String text, int points) {
+    public Answer() {
         this.id = counter++;
+    }
+
+    public Answer(String text, int points) {
+        super();
         this.text = text;
         this.points = points;
     }

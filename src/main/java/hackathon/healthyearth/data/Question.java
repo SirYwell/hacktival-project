@@ -8,8 +8,12 @@ public class Question {
     private String text;
     private List<Answer> answers;
 
-    public Question(String text, List<Answer> answers) {
+    public Question() {
         this.id = counter++;
+    }
+
+    public Question(String text, List<Answer> answers) {
+        super();
         this.text = text;
         this.answers = answers;
     }
